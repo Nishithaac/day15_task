@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="https://app.zenclass.in/sheets/v1/js/zen/suite/bundle.js"></script>
+    <h1 id="title">Form</h1>
+    <p id="description"> This is a form task</p>
+    <form id="form">
+        <div class="form-group">
+            <label for="first-name">Firstname:</label>
+            <input name="name" placeholder="Enter your first name" id="first-name" required><br><br>
+        </div>
+
+        <div class="form-group">
+            <label for="last-name">Lastname:</label>
+            <input name="name" placeholder="Enter your lastname" id="last-name" required><br><br>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="Enter your email" id="email" required><br><br>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address:</label><br>
+            <textarea id="address" placeholder="Enter your address here" required></textarea><br><br>
+        </div>
+
+        <div class="form-group">
+            <label for="pincode">Pincode:</label>
+            <input type="text" name="name" placeholder="Enter pincode" id="pincode" required><br><br>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="female" value="female" required>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="male" value="male" required><br><br>
+        </div>
+
+        <div class="form-group">
+            <label for="food">Choice of food:</label><br><br>
+            <label for="idli">idli</label>
+            <input type="radio" name="food" id="idli" value="idli" required>
+
+            <label for="dosa">Dosa</label>
+            <input type="radio" name="food" id="dosa" value="dosa" required>
+
+            <label for="poori">Poori</label>
+            <input type="radio" name="food" id="poori" value="poori" required>
+
+            <label for="vada">Vada</label>
+            <input type="radio" name="food" id="vada" value="vada" required>
+
+            <label for="upma">Upma</label>
+            <input type="radio" name="food" id="upma" value="upma" required><br><br>
+        </div>
+
+        <div class="form-group">
+            <label for="state">State:</label>       
+            <input type="text" name="state" id="state" required><br><br>
+        </div>
+
+        <div class="form-group">
+            <label for="country">Country:</label>       
+            <input type="text" name="country" id="country" required><br><br>
+        </div>
+
+        <button id="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Pincode</th>
+                    <th>Gender</th>
+                    <th>Food</th>
+                    <th>State</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function(event){
+            event.preventDefault();
+
+            var firstname = document.getElementById("first-name").value;
+            var lastname = document.getElementById("last-name").value;
+            var email = document.getElementById("email").value;
+            var address = document.getElementById("address").value;
+            var pincode = document.getElementById("pincode").value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var food = document.querySelector('input[name="food"]:checked').value;
+            var state = document.getElementById("state").value;
+            var country = document.getElementById("country").value;
+
+            var table = document.querySelector(".table tbody");
+            var newRow = table.insertRow(table.rows.length);
+
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+            var cell5 = newRow.insertCell(4);
+            var cell6 = newRow.insertCell(5);
+            var cell7 = newRow.insertCell(6);
+            var cell8 = newRow.insertCell(7);
+            var cell9 = newRow.insertCell(8);
+
+            cell1.innerHTML = firstname;
+            cell2.innerHTML = lastname;
+            cell3.innerHTML = email;
+            cell4.innerHTML = address;
+            cell5.innerHTML = pincode;
+            cell6.innerHTML = gender;
+            cell7.innerHTML = food;
+            cell8.innerHTML = state;
+            cell9.innerHTML = country;
+
+            document.getElementById("form").reset();
+        });
+
+    </script>
+    
+</body>
+</html>
